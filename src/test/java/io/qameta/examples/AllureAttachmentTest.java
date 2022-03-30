@@ -8,8 +8,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * This is a simple example on how you could add attachments to your Allure Report.
  * Example #1
- * annotatedAttachmentTest()
- * Test annotatedAttachmentTest() uses a method textAttachment with annotation @Attachment which is a part of Allure Framework.
+ * 'annotatedAttachmentTest()'
+ * Test 'annotatedAttachmentTest()' uses a method 'textAttachment()' with annotation '@Attachment' which is a part of Allure Framework.
  * 'value' parameter of the annotation defines the name of the attachment you will see in Allure Report UI
  * 'type' defined the mime type of the attachment
  * 'fileExtension' parameter defines the extension of an *-attachment[.ext] file which will be linked to the test result
