@@ -15,8 +15,8 @@ import java.nio.charset.StandardCharsets;
  * 'fileExtension' parameter defines the extension of an *-attachment[.ext] file which will be linked to the test result
  * Example #2
  * dynamicAttachmentTest()
- *  Test dynamicAttachmentTest() uses Allure Framework's attachment() method adding the name of attachment you will see in the UI of Allure Report, and the content of the attachment.
- *  In this case the attachment is considered as having primary mime type 'text/plain' and the extension of *-attachment[.ext] will be '.txt'
+ * Test dynamicAttachmentTest() uses Allure Framework's attachment() method adding the name of attachment you will see in the UI of Allure Report, and the content of the attachment.
+ * In this case the attachment is considered as having primary mime type 'text/plain' and the extension of *-attachment[.ext] will be '.txt'
  * for more information on mime types see here: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">MIME types</>
  */
 
