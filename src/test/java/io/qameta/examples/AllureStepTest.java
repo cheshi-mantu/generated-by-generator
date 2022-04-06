@@ -4,58 +4,81 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Test;
 
+/**
+ * AllureStepTest.class
+ *
+ * Steps allow you combining set of instructions which complete some part of a test, for example arrange, action, assert.
+ * You add a step using following options:
+ *
+ * 1) Annotated step.
+ * 2) Lambda step.
+ *
+ * 1) Annotated step
+ *    Annotated step uses '@Step' annotation which is placed above a method containing some actions.
+ *    for example, method annotatedStep() contains a set of actions described as Arrange, Act, Assert.
+ *    Each method having '@Step' annotation will be processed and displayed by Allure Report as a separate step with the details from your code.
+ *    See screenshot here: ###allure-report-documentation###/annotated-step
+ *    Pro: your code looks cleaner
+ *    Contra: you need to jump to the annotated method to understand what is happening inside this method.
+ *
+ * 2) Lambda step
+ *    Lambda steps use Lambda expression to combine actions logically tied together (same as above, e.g. Arrange, Act, Assert).
+ *    To describe a lamda step you need to use folloing construct:
+ *    Allure.step("Description", (step)->{yor methods here})
+ *    See screenshot here: ###allure-report-documentation###/lambda-step
+ *    Pro: Your code will be 100% self-explanatory
+ *    Contra: Your code will become more massive. @eroshenkoam: are there any contra yet?
+ *
+ */
+
 public class AllureStepTest {
 
-    /**
-        AllureStepTest.class
-    This class shows what actions Allure allows to do with the steps.
-
-    1) GLOBAL_PARAMETER is a global variable which can be used inside AllureStepTest class.
-
-    2) annotatedStepTest() - a test that contains the steps described in (5) and the passing parameter
-    is a "local value" that can only be used within that test.
-
-    3) lambdaStepTest() is a test which shows how Allure handles lambda steps.
-    Here we see that the variable localParameter is set inside the test. This is used in the name
-    of the "parent" step and the first nested step. The second nested step uses GLOBAL_PARAMETER inside,
-    is a lambda step and can also have nested steps.
-
-    4) annotatedStep() is a step which can take a parameter as shown in (1) and contain nested steps.
-
-    5) nestedAnnotatedStep() - step which takes a GLOBAL_PARAMETER value and passes it in its name.
-
-    If we run tests (2) and (3), we can see how Allure Report reproduces them.
-     */
-
-    // (1) GLOBAL_PARAMETER
     private static final String GLOBAL_PARAMETER = "global value";
 
-    // (2) annotatedStepTest
     @Test
     public void annotatedStepTest() {
-        annotatedStep("local value");
+        annotatedStepArrange("Arrange");
+        annotatedStepActions("Action");
+        annotatedStepAssertion("Assertion");
     }
 
-    // (3) lambdaStepTest
+    @Step("Parent annotated step to Arrange with parameter [{parameter}]")
+    public void annotatedStepArrange(final String parameter) {
+        nestedAnnotatedStep();
+    }
+
+    @Step("Parent annotated step with Actions with parameter [{parameter}]")
+    public void annotatedStepActions(final String parameter) {
+        nestedAnnotatedStep();
+    }
+
+    @Step("Parent annotated step with Assertions with parameter [{parameter}]")
+    public void annotatedStepAssertion(final String parameter) {
+        nestedAnnotatedStep();
+    }
+
+    @Step("Nested annotated step with global parameter [{this.GLOBAL_PARAMETER}]")
+    public void nestedAnnotatedStep() {
+
+    }
+
     @Test
     public void lambdaStepTest() {
         final String localParameter = "parameter value";
-        Allure.step(String.format("Parent lambda step with parameter [%s]", localParameter), (step) -> {
+        Allure.step(String.format("Parent lambda step with Arrange with parameter [%s]", localParameter), (step) -> {
+            step.parameter("parameter", localParameter);
+            Allure.step(String.format("Nested lambda step with global parameter [%s]", GLOBAL_PARAMETER));
+        });
+        Allure.step(String.format("Parent lambda step with Actions with parameter [%s]", localParameter), (step) -> {
+            step.parameter("parameter", localParameter);
+            Allure.step(String.format("Nested lambda step with global parameter [%s]", GLOBAL_PARAMETER));
+        });
+        Allure.step(String.format("Parent lambda step with Assertions with parameter [%s]", localParameter), (step) -> {
             step.parameter("parameter", localParameter);
             Allure.step(String.format("Nested lambda step with global parameter [%s]", GLOBAL_PARAMETER));
         });
     }
 
-    // (4) annotatedStep
-    @Step("Parent annotated step with parameter [{parameter}]")
-    public void annotatedStep(final String parameter) {
-        nestedAnnotatedStep();
-    }
 
-    // (5) nestedAnnotatedStep
-    @Step("Nested annotated step with global parameter [{this.GLOBAL_PARAMETER}]")
-    public void nestedAnnotatedStep() {
-
-    }
 
 }
