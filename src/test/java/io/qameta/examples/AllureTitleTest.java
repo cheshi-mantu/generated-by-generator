@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
  *    Cons: no way to assign values used in other test cases
  *
  * 2) Dynamic Title Test
- *    Allows dynamically change the test case title from the code.
+ *    Shows us how we can set the test case title from the code.
  *    See a screenshot here: ###allure-report-documentation##/dynamic-title
  *    Pros: your code looks more complex
  *    Cons: more options to change a large number of test cases quickly and efficiently
