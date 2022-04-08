@@ -27,14 +27,18 @@ import org.junit.jupiter.api.Test;
 
 public class AllureLinkTest {
 
+    private static final String LINK_TITLE = "Static link";
+    private static final String LINK = "https://qameta.io";
+    String firstDynamicLinkTitle = "First dynamic link";
+
     @Test
-    @Link(name = "Static link", url = "https://qameta.io")
+    @Link(name = LINK_TITLE, url = "https://qameta.io")
     public void staticLinkTest() {
     }
 
     @Test
     @Links({
-            @Link(name = "First static link", url = "https://qameta.io"),
+            @Link(name = "First static link", url = LINK),
             @Link(name = "Second static link", url = "https://qameta.io")
     })
     public void staticLinksTest() {
@@ -42,7 +46,12 @@ public class AllureLinkTest {
 
     @Test
     public void dynamicLinkTest() {
-        Allure.link("Dynamic link", "https://qameta.io");
-    }
 
+        String secondDynamicLinkTitle = "Second dynamic link";
+
+        Allure.link(firstDynamicLinkTitle, LINK);
+        Allure.link(secondDynamicLinkTitle, "https://qameta.io");
+
+    }
+    
 }
