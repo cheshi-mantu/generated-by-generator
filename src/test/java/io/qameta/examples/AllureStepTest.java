@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
  *    Each method having '@Step' annotation will be processed and displayed by Allure Report as a separate step with the details from your code.
  *    See screenshot here: ###allure-report-documentation###/annotated-step
  *    Pro: your code looks cleaner
- *    Contra: you need to jump to the annotated method to understand what is happening inside this method.
+ *    Cons: you need to jump to the annotated method to understand what is happening inside this method.
  *
  * 2) Lambda step
  *    Lambda steps use Lambda expression to combine actions logically tied together (same as above, e.g. Arrange, Act, Assert).
@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
  *    Allure.step("Description", (step)->{yor methods here})
  *    See screenshot here: ###allure-report-documentation###/lambda-step
  *    Pro: Your code will be 100% self-explanatory
- *    Contra: Your code will become more massive. @eroshenkoam: are there any contra yet?
+ *    Cons: Your code will become more massive. @eroshenkoam: are there any contra yet?
  *
  */
 

@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.parameter;
 
 /**
- * Allure.parameter allows you to assign text labels to entry variables of parameterized tests,
- * which improves code readability and helps analyze data in Allure Report.
+ * Allure.parameter uses basic Junit5 annotations and allows you to assign text labels to entry variables of
+ * parameterized tests, which improves code readability and helps analyze data in Allure Report.
  * See a screenshot here: ###allure-report-documentation##/parameter
  */
 

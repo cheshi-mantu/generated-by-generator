@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
  * 3) 'Allure.link' is a very handy tool, it allows you to quickly access the data obtained during the test run.
  *    See a screenshot here: ###allure-report-documentation##/dynamic_link
  *    Pros: The actuality of the data obtained
- *    Cons: Not observed:)
+ *    Cons: Zero:) @cheshi-mantu: Does any of this exist?
  */
 
 public class AllureLinkTest {
