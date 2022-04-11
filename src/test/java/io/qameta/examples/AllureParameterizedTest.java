@@ -24,9 +24,20 @@ public class AllureParameterizedTest {
     @ParameterizedTest
     @MethodSource("numbers")
     public void sumTest(int a, int b, int r) {
-        parameter("First Number", a);
-        parameter("Second Number", b);
-        parameter("Result Sum", r);
+        parameter("1First Number", a);
+        parameter("2Second Number", b);
+        parameter("3Result Sum", r);
+
+        step(("Arrange"), () ->{
+            step(String.format("Take collection №[%s] of parameters", a));
+        });
+        step(("Act"), () ->{
+            step(String.format("Add [%s]", a)+ String.format("to [%s]", b));
+        });
+        step(("Assert"), () ->{
+            step("Compare the sum");
+            Assertions.assertEquals( r , (a+b));
+        });
     }
 
 }

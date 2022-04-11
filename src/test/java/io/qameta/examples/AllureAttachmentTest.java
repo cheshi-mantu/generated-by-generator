@@ -49,12 +49,24 @@ public class AllureAttachmentTest {
 
     @Test
     public void annotatedAttachmentTest() {
+                        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
         textAttachment("Annotated", "hello, world!");
+        
     }
 
     @Test
     public void dynamicAttachmentTest() {
+                        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
         Allure.attachment("Dynamic attachment", "attachment content");
+        
     }
 
     @Attachment(value = "Annotated attachment [{type}]", type = "text/plain", fileExtension = ".txt")

@@ -15,26 +15,55 @@ import static io.qameta.allure.Allure.step;
 
 
 public class AllureFixtureTest {
+
     @BeforeAll
     public static void beforeAllMethods() {
+
         step("Step inside before all methods");
+
     }
+
     @BeforeEach
     public void beforeEachMethod() {
+
         step("Step inside before each method");
+
     }
 
     @Test
-    public void simpleTest() {
-        step("Step inside test");
+    public void firstSimpleTest() {
+                
+        step("Arrange");
+        step("Act", () -> {
+            step("Step inside first test");
+        });
+        step("Assert");
+
     }
+
+    @Test
+    public void secondSimpleTest() {
+                
+        step("Arrange");
+        step("Act", () -> {
+            step("Step inside second test");
+        });
+        step("Assert");
+
+    }
+
     @AfterEach
     public void afterEachMethod() {
+
         step("Step inside after each method");
+
     }
+    
     @AfterAll
     public static void afterAllMethods() {
+
         step("Step inside after all methods");
+
     }
 
 }

@@ -37,6 +37,11 @@ public class AllureDescriptionTest {
     @Test
     @Description("Static description")
     public void annotationDescriptionTest() {
+                        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
     }
 
     /**
@@ -45,11 +50,21 @@ public class AllureDescriptionTest {
     @Test
     @Description(useJavaDoc = true)
     public void javadocDescriptionTest() {
+                        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
     }
 
     @Test
     public void dynamicDescriptionTest() {
         Allure.description("Dynamic description");
+                        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
     }
 
 }

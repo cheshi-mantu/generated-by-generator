@@ -27,6 +27,12 @@ public class AllureTitleTest {
     @Test
     @DisplayName("Static name")
     public void annotationTitleTest() {
+        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
+
     }
 
     @Test
@@ -34,6 +40,11 @@ public class AllureTitleTest {
         final String dynamicPart = "dynamic parameter";
         final String dynamicName = String.format("Test with parameter [%s]", dynamicPart);
         Allure.getLifecycle().updateTestCase(result -> result.setName(dynamicName));
+        
+        step("Arrange");
+        step("Act");
+        step("Assert");
+
     }
 
 }
