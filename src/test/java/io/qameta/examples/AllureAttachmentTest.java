@@ -20,6 +20,31 @@ import java.nio.charset.StandardCharsets;
  * for more information on mime types see here: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">MIME types</>
  */
 
+ /**
+ * Attachment allows you to pin a file to a test case
+ *
+ * Here are examples of how you can set up attachments in an allure report
+ *
+ * 1) annotatedAttachmentTest
+ * 2) dynamicAttachmentTest
+ * 3) textAttachment
+ *
+ * 1) annotatedAttachmentTest
+ *    Allows you to specify the type of attachment and its content using method (3)
+ *    See a screenshot here: ###allure-report-documentation##/annotated_attachment
+ *    Pros: You can create custom rules for attachments
+ *    Cons: More complex code
+ *
+ * 2) dynamicAttachmentTest.
+ *    Allows you to provide attachments using the Allure.attach method
+ *    See a screenshot here: ###allure-report-documentation##/dynamic_attachment
+ *    Pros: The code is more readable
+ *    Cons: More restrictions on input data
+ *
+ * 3) annotatedAttachmentTest
+ *    Method provided by '@Attachment' annotation and describes which files you want to attach.
+ */
+
 public class AllureAttachmentTest {
 
     @Test
