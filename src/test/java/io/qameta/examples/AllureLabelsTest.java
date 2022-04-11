@@ -62,9 +62,6 @@ public class AllureLabelsTest {
     @Owner("static owner")
     public void commonStaticLabelTest() {
 
-        step("Arrange");
-        step("Act");
-        step("Assert");
 
     }
 
@@ -76,9 +73,6 @@ public class AllureLabelsTest {
         Allure.story("dynamic story");
         Allure.suite("dynamic suite");
 
-        step("Arrange");
-        step("Act");
-        step("Assert");
 
     }
 
@@ -86,21 +80,12 @@ public class AllureLabelsTest {
     @CustomLabel("static value")
     public void customStaticLabelTest() {
 
-        step("Arrange");
-        step("Act");
-        step("Assert");
-
     }
 
     @Test
     public void customDynamicLabelTest() {
 
         Allure.label("custom", "dynamic value");
-
-        step("Arrange");
-        step("Act");
-        step("Assert");
-
     }
 
     @Documented

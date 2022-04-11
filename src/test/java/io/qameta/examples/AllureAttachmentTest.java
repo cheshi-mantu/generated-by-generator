@@ -47,31 +47,24 @@ import java.nio.charset.StandardCharsets;
 
 public class AllureAttachmentTest {
 
-    @Test
-    public void annotatedAttachmentTest() {
-                        
-        step("Arrange");
-        step("Act");
-        step("Assert");
+     @Attachment(value = "Annotated attachment [{type}]", type = "text/plain", fileExtension = ".txt")
+     public byte[] textAttachment(String type, String content) {
+         return content.getBytes(StandardCharsets.UTF_8);
+     }
 
-        textAttachment("Annotated", "hello, world!");
-        
+     @Test
+    public void annotatedAttachmentTest() {
+        Allure.step("Here goes the step with annotated attachment", ()-> {
+            textAttachment("Annotated", "hello, world!");
+        });
     }
 
     @Test
     public void dynamicAttachmentTest() {
                         
-        step("Arrange");
-        step("Act");
-        step("Assert");
-
         Allure.attachment("Dynamic attachment", "attachment content");
         
     }
 
-    @Attachment(value = "Annotated attachment [{type}]", type = "text/plain", fileExtension = ".txt")
-    public byte[] textAttachment(String type, String content) {
-        return content.getBytes(StandardCharsets.UTF_8);
-    }
 
 }

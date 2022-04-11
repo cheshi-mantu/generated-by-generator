@@ -43,9 +43,6 @@ public class AllureLinkTest {
     })
     public void staticLinksTest() {
                 
-        step("Arrange");
-        step("Act");
-        step("Assert");
 
     }
 
@@ -53,13 +50,8 @@ public class AllureLinkTest {
     public void dynamicLinkTest() {
 
         String secondDynamicLinkTitle = "Second dynamic link";
-
         Allure.link(firstDynamicLinkTitle, LINK);
         Allure.link(secondDynamicLinkTitle, "https://qameta.io");
-
-        step("Arrange");
-        step("Act");
-        step("Assert");
 
 
     }

@@ -1,5 +1,6 @@
 package io.qameta.examples;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,6 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 import static io.qameta.allure.Allure.parameter;
+import static io.qameta.allure.Allure.step;
 
 /**
  * Allure.parameter uses basic Junit5 annotations and allows you to assign text labels to entry variables of
